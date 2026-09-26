@@ -190,7 +190,7 @@ const ActivePortfolioSection: React.FC = () => {
 
               {/* Title */}
               <MotionTypography
-                component="h3"
+                variant="h3"
                 sx={{
                   fontFamily: "Sora, sans-serif",
                   fontWeight: 700,

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 import VisionSection from "./Section1";
 import ProjectBrief from "./Section2";
@@ -8,7 +8,7 @@ import StrategySessionSection from "./Section3";
 
 const MotionSection = motion.section;
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 40,

@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
 
 const WhyWeBuildOurOwnProductsSection: React.FC = () => {
   return (
@@ -12,7 +11,9 @@ const WhyWeBuildOurOwnProductsSection: React.FC = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       variants={{
-        hidden: { opacity: 0 },
+        hidden: {
+          opacity: 0,
+        },
         visible: {
           opacity: 1,
           transition: {
@@ -24,88 +25,190 @@ const WhyWeBuildOurOwnProductsSection: React.FC = () => {
       sx={{
         backgroundColor: "#0A0A0A",
         color: "#FFFFFF",
-        px: { xs: 2.5, sm: 4, md: 6, lg: 8 },
-        py: { xs: 7, sm: 8, md: 10, lg: 12 },
+        px: {
+          xs: 2.5,
+          sm: 4,
+          md: 6,
+          lg: 8,
+        },
+        py: {
+          xs: 7,
+          sm: 8,
+          md: 10,
+          lg: 12,
+        },
         width: "100%",
         boxSizing: "border-box",
         borderBottom: "1px solid #FFFFFF1A",
         overflow: "hidden",
       }}
     >
-      <Grid container spacing={{ xs: 6, md: 8 }} alignItems="flex-start">
-        {/* Left Column: Heading with decorative purple line */}
-        <Grid size={{ xs: 12, md: 5 }}>
-          <MotionTypography
-            component="h2"
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-            }}
-            sx={{
-              fontFamily: "Sora, sans-serif",
-              fontWeight: 700,
-              fontSize: { xs: "32px", sm: "40px", md: "46px" },
-              lineHeight: 1.15,
-              color: "#FFFFFF",
-              mb: 3,
-            }}
-          >
-            Why We Build Our Own Products
-          </MotionTypography>
+      {/* Main Content */}
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "5fr 7fr",
+          },
+          columnGap: {
+            xs: 6,
+            md: 8,
+          },
+          rowGap: {
+            xs: 6,
+            md: 8,
+          },
+          alignItems: "start",
+          width: "100%",
+        }}
+      >
+        {/* ================= LEFT COLUMN ================= */}
+        <Box>
           <MotionBox
             variants={{
-              hidden: { opacity: 0, width: 0 },
-              visible: { opacity: 1, width: "60px", transition: { duration: 0.6, delay: 0.2 } },
+              hidden: {
+                opacity: 0,
+                y: 30,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.6,
+                },
+              },
+            }}
+          >
+            <Typography
+              component="h2"
+              sx={{
+                fontFamily: "Sora, sans-serif",
+                fontWeight: 700,
+                fontSize: {
+                  xs: "32px",
+                  sm: "40px",
+                  md: "46px",
+                },
+                lineHeight: 1.15,
+                color: "#FFFFFF",
+                mb: 3,
+              }}
+            >
+              Why We Build Our Own Products
+            </Typography>
+          </MotionBox>
+
+          {/* Purple Decorative Line */}
+          <MotionBox
+            variants={{
+              hidden: {
+                opacity: 0,
+                width: 0,
+              },
+              visible: {
+                opacity: 1,
+                width: "60px",
+                transition: {
+                  duration: 0.6,
+                  delay: 0.2,
+                },
+              },
             }}
             sx={{
               height: "4px",
+              width: "60px",
               backgroundColor: "#6655EB",
               borderRadius: "2px",
             }}
           />
-        </Grid>
+        </Box>
 
-        {/* Right Column: Descriptions */}
-        <Grid size={{ xs: 12, md: 7 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            <MotionTypography
+        {/* ================= RIGHT COLUMN ================= */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 3,
+          }}
+        >
+          {/* First Paragraph */}
+          <MotionBox
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 30,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.6,
+                },
+              },
+            }}
+          >
+            <Typography
               component="p"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
               sx={{
                 fontFamily: "Sora, sans-serif",
                 fontWeight: 400,
-                fontSize: { xs: "15px", sm: "16px", md: "17px" },
+                fontSize: {
+                  xs: "15px",
+                  sm: "16px",
+                  md: "17px",
+                },
                 lineHeight: "28px",
                 color: "#8C8C8C",
                 m: 0,
               }}
             >
-              We don't just build for clients — we build for ourselves. Our proprietary products demonstrate our complete concept — development — launch — monetization capability.
-            </MotionTypography>
+              We don't just build for clients — we build for ourselves. Our
+              proprietary products demonstrate our complete concept —
+              development — launch — monetization capability.
+            </Typography>
+          </MotionBox>
 
-            <MotionTypography
+          {/* Second Paragraph */}
+          <MotionBox
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 30,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.6,
+                },
+              },
+            }}
+          >
+            <Typography
               component="p"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
               sx={{
                 fontFamily: "Sora, sans-serif",
                 fontWeight: 400,
-                fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                fontSize: {
+                  xs: "14px",
+                  sm: "15px",
+                  md: "16px",
+                },
                 lineHeight: "26px",
                 color: "#8C8C8C",
                 m: 0,
               }}
             >
-              By operating our own software businesses, we encounter and solve the exact same challenges our clients face: user acquisition, scaling infrastructure, platform analytics, and direct commercial monetization. It serves as live, tangible proof of our engineering and execution standards.
-            </MotionTypography>
-          </Box>
-        </Grid>
-      </Grid>
+              By operating our own software businesses, we encounter and
+              solve the exact same challenges our clients face: user
+              acquisition, scaling infrastructure, platform analytics, and
+              direct commercial monetization. It serves as live, tangible
+              proof of our engineering and execution standards.
+            </Typography>
+          </MotionBox>
+        </Box>
+      </Box>
     </MotionBox>
   );
 };

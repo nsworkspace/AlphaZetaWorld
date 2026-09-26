@@ -3,10 +3,8 @@ import { Box, Typography, Button, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
 
-const ReadyToBuildSection = () => {
+const ReadyToBuildSection: React.FC = () => {
   return (
     <MotionBox
       initial="hidden"
@@ -48,7 +46,6 @@ const ReadyToBuildSection = () => {
         textAlign: "center",
         overflow: "hidden",
 
-        // Subtle background glow
         "&::before": {
           content: '""',
           position: "absolute",
@@ -70,7 +67,7 @@ const ReadyToBuildSection = () => {
         },
       }}
     >
-      {/* Content */}
+      {/* ================= CONTENT ================= */}
       <Box
         sx={{
           position: "relative",
@@ -81,9 +78,8 @@ const ReadyToBuildSection = () => {
           alignItems: "center",
         }}
       >
-        {/* Heading */}
-        <MotionTypography
-          component="h2"
+        {/* ================= HEADING ================= */}
+        <MotionBox
           variants={{
             hidden: {
               opacity: 0,
@@ -101,85 +97,46 @@ const ReadyToBuildSection = () => {
             },
           }}
           sx={{
-            fontFamily: "Sora, sans-serif",
-            fontWeight: 700,
-            fontSize: {
-              xs: "30px",
-              sm: "38px",
-              md: "44px",
-              lg: "48px",
-            },
-            lineHeight: {
-              xs: 1.2,
-              md: 1.2,
-            },
-            letterSpacing: {
-              xs: "-0.5px",
-              md: "-1px",
-            },
-            color: "#F4DC80",
-            mb: {
-              xs: 1.5,
-              md: 2,
-            },
+            width: "100%",
             maxWidth: {
               xs: "100%",
               sm: "650px",
               md: "800px",
             },
-          }}
-        >
-          Ready to Build Your Platform?
-        </MotionTypography>
-
-        {/* Description */}
-        <MotionTypography
-          component="p"
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 30,
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              },
-            },
-          }}
-          sx={{
-            fontFamily: "Sora, sans-serif",
-            fontWeight: 400,
-            fontSize: {
-              xs: "14px",
-              sm: "15px",
-              md: "18px",
-            },
-            lineHeight: {
-              xs: "23px",
-              sm: "25px",
-              md: "28px",
-            },
-            color: "#8C8C8C",
-            maxWidth: {
-              xs: "100%",
-              sm: "550px",
-              md: "650px",
-            },
             mb: {
-              xs: 4,
-              sm: 4.5,
-              md: 5,
+              xs: 1.5,
+              md: 2,
             },
           }}
         >
-          We work as an elegant extension of your product team. Let's schedule
-          a deep-dive call and architecture review.
-        </MotionTypography>
+          <Typography
+            component="h2"
+            sx={{
+              fontFamily: "Sora, sans-serif",
+              fontWeight: 700,
+              fontSize: {
+                xs: "30px",
+                sm: "38px",
+                md: "44px",
+                lg: "48px",
+              },
+              lineHeight: {
+                xs: 1.2,
+                md: 1.2,
+              },
+              letterSpacing: {
+                xs: "-0.5px",
+                md: "-1px",
+              },
+              color: "#F4DC80",
+              m: 0,
+            }}
+          >
+            Ready to Build Your Platform?
+          </Typography>
+        </MotionBox>
 
-        {/* Buttons */}
+        {/* ================= DESCRIPTION ================= */}
         <MotionBox
           variants={{
             hidden: {
@@ -195,6 +152,65 @@ const ReadyToBuildSection = () => {
               },
             },
           }}
+          sx={{
+            width: "100%",
+            maxWidth: {
+              xs: "100%",
+              sm: "550px",
+              md: "650px",
+            },
+            mb: {
+              xs: 4,
+              sm: 4.5,
+              md: 5,
+            },
+          }}
+        >
+          <Typography
+            component="p"
+            sx={{
+              fontFamily: "Sora, sans-serif",
+              fontWeight: 400,
+              fontSize: {
+                xs: "14px",
+                sm: "15px",
+                md: "18px",
+              },
+              lineHeight: {
+                xs: "23px",
+                sm: "25px",
+                md: "28px",
+              },
+              color: "#8C8C8C",
+              m: 0,
+            }}
+          >
+            We work as an elegant extension of your product team. Let's
+            schedule a deep-dive call and architecture review.
+          </Typography>
+        </MotionBox>
+
+        {/* ================= BUTTONS ================= */}
+        <MotionBox
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 30,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+              },
+            },
+          }}
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
           <Stack
             direction={{
@@ -205,15 +221,17 @@ const ReadyToBuildSection = () => {
               xs: 1.5,
               sm: 2,
             }}
-            justifyContent="center"
-            alignItems="center"
             sx={{
-              width: "100%",
+              width: {
+                xs: "100%",
+                sm: "auto",
+              },
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            {/* Primary Button */}
-            <MotionButton
-              variant="contained"
+            {/* ================= PRIMARY BUTTON ================= */}
+            <MotionBox
               whileHover={{
                 scale: 1.05,
                 y: -3,
@@ -231,45 +249,54 @@ const ReadyToBuildSection = () => {
                   xs: "100%",
                   sm: "auto",
                 },
-                minWidth: {
-                  xs: "220px",
-                  sm: "170px",
-                },
-                fontFamily: "Sora, sans-serif",
-                fontWeight: 600,
-                fontSize: {
-                  xs: "14px",
-                  md: "15px",
-                },
-                textTransform: "none",
-                backgroundColor: "#F4DC80",
-                color: "#1A1A1A",
-                borderRadius: "28px",
-                px: {
-                  xs: 3,
-                  md: 4,
-                },
-                py: {
-                  xs: 1.3,
-                  md: 1.5,
-                },
-                boxShadow: "none",
-                "&:hover": {
-                  backgroundColor: "#E5C94F",
-                  boxShadow: "0 10px 30px rgba(244, 220, 128, 0.15)",
-                },
               }}
             >
-              Start a Project
-            </MotionButton>
+              <Button
+                variant="contained"
+                sx={{
+                  width: {
+                    xs: "100%",
+                    sm: "auto",
+                  },
+                  minWidth: {
+                    xs: "220px",
+                    sm: "170px",
+                  },
+                  fontFamily: "Sora, sans-serif",
+                  fontWeight: 600,
+                  fontSize: {
+                    xs: "14px",
+                    md: "15px",
+                  },
+                  textTransform: "none",
+                  backgroundColor: "#F4DC80",
+                  color: "#1A1A1A",
+                  borderRadius: "28px",
+                  px: {
+                    xs: 3,
+                    md: 4,
+                  },
+                  py: {
+                    xs: 1.3,
+                    md: 1.5,
+                  },
+                  boxShadow: "none",
+                  "&:hover": {
+                    backgroundColor: "#E5C94F",
+                    boxShadow:
+                      "0 10px 30px rgba(244, 220, 128, 0.15)",
+                  },
+                }}
+              >
+                Start a Project
+              </Button>
+            </MotionBox>
 
-            {/* Secondary Button */}
-            <MotionButton
-              variant="outlined"
+            {/* ================= SECONDARY BUTTON ================= */}
+            <MotionBox
               whileHover={{
                 scale: 1.05,
                 y: -3,
-                borderColor: "#6655EB",
               }}
               whileTap={{
                 scale: 0.96,
@@ -284,39 +311,50 @@ const ReadyToBuildSection = () => {
                   xs: "100%",
                   sm: "auto",
                 },
-                minWidth: {
-                  xs: "220px",
-                  sm: "200px",
-                },
-                fontFamily: "Sora, sans-serif",
-                fontWeight: 600,
-                fontSize: {
-                  xs: "14px",
-                  md: "15px",
-                },
-                textTransform: "none",
-                backgroundColor: "#141416",
-                color: "#FFFFFF",
-                borderColor: "#222226",
-                borderRadius: "28px",
-                px: {
-                  xs: 3,
-                  md: 4,
-                },
-                py: {
-                  xs: 1.3,
-                  md: 1.5,
-                },
-                boxShadow: "none",
-                "&:hover": {
-                  backgroundColor: "#1C1C21",
-                  borderColor: "#6655EB",
-                  boxShadow: "0 10px 30px rgba(102, 85, 235, 0.1)",
-                },
               }}
             >
-              Book a Strategy Call
-            </MotionButton>
+              <Button
+                variant="outlined"
+                sx={{
+                  width: {
+                    xs: "100%",
+                    sm: "auto",
+                  },
+                  minWidth: {
+                    xs: "220px",
+                    sm: "200px",
+                  },
+                  fontFamily: "Sora, sans-serif",
+                  fontWeight: 600,
+                  fontSize: {
+                    xs: "14px",
+                    md: "15px",
+                  },
+                  textTransform: "none",
+                  backgroundColor: "#141416",
+                  color: "#FFFFFF",
+                  borderColor: "#222226",
+                  borderRadius: "28px",
+                  px: {
+                    xs: 3,
+                    md: 4,
+                  },
+                  py: {
+                    xs: 1.3,
+                    md: 1.5,
+                  },
+                  boxShadow: "none",
+                  "&:hover": {
+                    backgroundColor: "#1C1C21",
+                    borderColor: "#6655EB",
+                    boxShadow:
+                      "0 10px 30px rgba(102, 85, 235, 0.1)",
+                  },
+                }}
+              >
+                Book a Strategy Call
+              </Button>
+            </MotionBox>
           </Stack>
         </MotionBox>
       </Box>

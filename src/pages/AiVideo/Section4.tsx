@@ -3,8 +3,6 @@ import { Box, Typography, Button, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
 
 const ReadyToBuildSection = () => {
     return (
@@ -48,7 +46,6 @@ const ReadyToBuildSection = () => {
                 textAlign: "center",
                 overflow: "hidden",
 
-                // Subtle background glow
                 "&::before": {
                     content: '""',
                     position: "absolute",
@@ -82,8 +79,7 @@ const ReadyToBuildSection = () => {
                 }}
             >
                 {/* Heading */}
-                <MotionTypography
-                    component="h2"
+                <MotionBox
                     variants={{
                         hidden: {
                             opacity: 0,
@@ -100,41 +96,44 @@ const ReadyToBuildSection = () => {
                             },
                         },
                     }}
-                    sx={{
-                        fontFamily: "Sora, sans-serif",
-                        fontWeight: 700,
-                        fontSize: {
-                            xs: "30px",
-                            sm: "38px",
-                            md: "44px",
-                            lg: "48px",
-                        },
-                        lineHeight: {
-                            xs: 1.2,
-                            md: 1.2,
-                        },
-                        letterSpacing: {
-                            xs: "-0.5px",
-                            md: "-1px",
-                        },
-                        color: "#F4DC80",
-                        mb: {
-                            xs: 1.5,
-                            md: 2,
-                        },
-                        maxWidth: {
-                            xs: "100%",
-                            sm: "650px",
-                            md: "800px",
-                        },
-                    }}
                 >
-                    Ready to Scale Your Content?
-                </MotionTypography>
+                    <Typography
+                        component="h2"
+                        sx={{
+                            fontFamily: "Sora, sans-serif",
+                            fontWeight: 700,
+                            fontSize: {
+                                xs: "30px",
+                                sm: "38px",
+                                md: "44px",
+                                lg: "48px",
+                            },
+                            lineHeight: {
+                                xs: 1.2,
+                                md: 1.2,
+                            },
+                            letterSpacing: {
+                                xs: "-0.5px",
+                                md: "-1px",
+                            },
+                            color: "#F4DC80",
+                            mb: {
+                                xs: 1.5,
+                                md: 2,
+                            },
+                            maxWidth: {
+                                xs: "100%",
+                                sm: "650px",
+                                md: "800px",
+                            },
+                        }}
+                    >
+                        Ready to Scale Your Content?
+                    </Typography>
+                </MotionBox>
 
                 {/* Description */}
-                <MotionTypography
-                    component="p"
+                <MotionBox
                     variants={{
                         hidden: {
                             opacity: 0,
@@ -149,34 +148,40 @@ const ReadyToBuildSection = () => {
                             },
                         },
                     }}
-                    sx={{
-                        fontFamily: "Sora, sans-serif",
-                        fontWeight: 400,
-                        fontSize: {
-                            xs: "14px",
-                            sm: "15px",
-                            md: "18px",
-                        },
-                        lineHeight: {
-                            xs: "23px",
-                            sm: "25px",
-                            md: "28px",
-                        },
-                        color: "#8C8C8C",
-                        maxWidth: {
-                            xs: "100%",
-                            sm: "550px",
-                            md: "650px",
-                        },
-                        mb: {
-                            xs: 4,
-                            sm: 4.5,
-                            md: 5,
-                        },
-                    }}
                 >
-                    Get custom high-fidelity commercial creatives or weeks of native vertical content queued up effortlessly. Let's draft your script.
-                </MotionTypography>
+                    <Typography
+                        component="p"
+                        sx={{
+                            fontFamily: "Sora, sans-serif",
+                            fontWeight: 400,
+                            fontSize: {
+                                xs: "14px",
+                                sm: "15px",
+                                md: "18px",
+                            },
+                            lineHeight: {
+                                xs: "23px",
+                                sm: "25px",
+                                md: "28px",
+                            },
+                            color: "#8C8C8C",
+                            maxWidth: {
+                                xs: "100%",
+                                sm: "550px",
+                                md: "650px",
+                            },
+                            mb: {
+                                xs: 4,
+                                sm: 4.5,
+                                md: 5,
+                            },
+                        }}
+                    >
+                        Get custom high-fidelity commercial creatives or weeks of
+                        native vertical content queued up effortlessly. Let's draft
+                        your script.
+                    </Typography>
+                </MotionBox>
 
                 {/* Buttons */}
                 <MotionBox
@@ -204,15 +209,14 @@ const ReadyToBuildSection = () => {
                             xs: 1.5,
                             sm: 2,
                         }}
-                        justifyContent="center"
-                        alignItems="center"
                         sx={{
                             width: "100%",
+                            justifyContent: "center",
+                            alignItems: "center",
                         }}
                     >
                         {/* Primary Button */}
-                        <MotionButton
-                            variant="contained"
+                        <MotionBox
                             whileHover={{
                                 scale: 1.05,
                                 y: -3,
@@ -225,46 +229,50 @@ const ReadyToBuildSection = () => {
                                 stiffness: 400,
                                 damping: 20,
                             }}
-                            sx={{
-                                width: {
-                                    xs: "100%",
-                                    sm: "auto",
-                                },
-                                minWidth: {
-                                    xs: "220px",
-                                    sm: "170px",
-                                },
-                                fontFamily: "Sora, sans-serif",
-                                fontWeight: 600,
-                                fontSize: {
-                                    xs: "14px",
-                                    md: "15px",
-                                },
-                                textTransform: "none",
-                                backgroundColor: "#F4DC80",
-                                color: "#1A1A1A",
-                                borderRadius: "28px",
-                                px: {
-                                    xs: 3,
-                                    md: 4,
-                                },
-                                py: {
-                                    xs: 1.3,
-                                    md: 1.5,
-                                },
-                                boxShadow: "none",
-                                "&:hover": {
-                                    backgroundColor: "#E5C94F",
-                                    boxShadow: "0 10px 30px rgba(244, 220, 128, 0.15)",
-                                },
-                            }}
                         >
-                            Start a Project
-                        </MotionButton>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    width: {
+                                        xs: "100%",
+                                        sm: "auto",
+                                    },
+                                    minWidth: {
+                                        xs: "220px",
+                                        sm: "170px",
+                                    },
+                                    fontFamily: "Sora, sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: {
+                                        xs: "14px",
+                                        md: "15px",
+                                    },
+                                    textTransform: "none",
+                                    backgroundColor: "#F4DC80",
+                                    color: "#1A1A1A",
+                                    borderRadius: "28px",
+                                    px: {
+                                        xs: 3,
+                                        md: 4,
+                                    },
+                                    py: {
+                                        xs: 1.3,
+                                        md: 1.5,
+                                    },
+                                    boxShadow: "none",
+                                    "&:hover": {
+                                        backgroundColor: "#E5C94F",
+                                        boxShadow:
+                                            "0 10px 30px rgba(244, 220, 128, 0.15)",
+                                    },
+                                }}
+                            >
+                                Start a Project
+                            </Button>
+                        </MotionBox>
 
                         {/* Secondary Button */}
-                        <MotionButton
-                            variant="outlined"
+                        <MotionBox
                             whileHover={{
                                 scale: 1.05,
                                 y: -3,
@@ -278,44 +286,49 @@ const ReadyToBuildSection = () => {
                                 stiffness: 400,
                                 damping: 20,
                             }}
-                            sx={{
-                                width: {
-                                    xs: "100%",
-                                    sm: "auto",
-                                },
-                                minWidth: {
-                                    xs: "220px",
-                                    sm: "200px",
-                                },
-                                fontFamily: "Sora, sans-serif",
-                                fontWeight: 600,
-                                fontSize: {
-                                    xs: "14px",
-                                    md: "15px",
-                                },
-                                textTransform: "none",
-                                backgroundColor: "#141416",
-                                color: "#FFFFFF",
-                                borderColor: "#222226",
-                                borderRadius: "28px",
-                                px: {
-                                    xs: 3,
-                                    md: 4,
-                                },
-                                py: {
-                                    xs: 1.3,
-                                    md: 1.5,
-                                },
-                                boxShadow: "none",
-                                "&:hover": {
-                                    backgroundColor: "#1C1C21",
-                                    borderColor: "#6655EB",
-                                    boxShadow: "0 10px 30px rgba(102, 85, 235, 0.1)",
-                                },
-                            }}
                         >
-                            Book a Strategy Call
-                        </MotionButton>
+                            <Button
+                                variant="outlined"
+                                sx={{
+                                    width: {
+                                        xs: "100%",
+                                        sm: "auto",
+                                    },
+                                    minWidth: {
+                                        xs: "220px",
+                                        sm: "200px",
+                                    },
+                                    fontFamily: "Sora, sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: {
+                                        xs: "14px",
+                                        md: "15px",
+                                    },
+                                    textTransform: "none",
+                                    backgroundColor: "#141416",
+                                    color: "#FFFFFF",
+                                    borderColor: "#222226",
+                                    borderRadius: "28px",
+                                    px: {
+                                        xs: 3,
+                                        md: 4,
+                                    },
+                                    py: {
+                                        xs: 1.3,
+                                        md: 1.5,
+                                    },
+                                    boxShadow: "none",
+                                    "&:hover": {
+                                        backgroundColor: "#1C1C21",
+                                        borderColor: "#6655EB",
+                                        boxShadow:
+                                            "0 10px 30px rgba(102, 85, 235, 0.1)",
+                                    },
+                                }}
+                            >
+                                Book a Strategy Call
+                            </Button>
+                        </MotionBox>
                     </Stack>
                 </MotionBox>
             </Box>

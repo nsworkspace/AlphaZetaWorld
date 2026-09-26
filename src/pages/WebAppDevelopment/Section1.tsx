@@ -3,16 +3,17 @@ import { Box, Typography, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
 
-const DevelopmentServicesSection = () => {
+const DevelopmentServicesSection: React.FC = () => {
   return (
     <MotionBox
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
       variants={{
-        hidden: { opacity: 0 },
+        hidden: {
+          opacity: 0,
+        },
         visible: {
           opacity: 1,
           transition: {
@@ -44,7 +45,7 @@ const DevelopmentServicesSection = () => {
         overflow: "hidden",
       }}
     >
-      {/* Service Tag */}
+      {/* ================= SERVICE TAG ================= */}
       <MotionBox
         variants={{
           hidden: {
@@ -64,7 +65,6 @@ const DevelopmentServicesSection = () => {
         }}
         whileHover={{
           scale: 1.05,
-          borderColor: "#8A7CFF",
         }}
         sx={{
           mb: {
@@ -103,9 +103,8 @@ const DevelopmentServicesSection = () => {
         />
       </MotionBox>
 
-      {/* Main Heading */}
-      <MotionTypography
-        component="h1"
+      {/* ================= MAIN HEADING ================= */}
+      <MotionBox
         variants={{
           hidden: {
             opacity: 0,
@@ -124,60 +123,63 @@ const DevelopmentServicesSection = () => {
         }}
         sx={{
           width: "100%",
-          fontFamily: "Sora, sans-serif",
-          fontWeight: 700,
-
-          // Responsive font size
-          fontSize: {
-            xs: "34px",
-            sm: "42px",
-            md: "52px",
-            lg: "64px",
-            xl: "72px",
-          },
-
-          lineHeight: {
-            xs: 1.15,
-            sm: 1.15,
-            md: 1.15,
-            lg: "76px",
-            xl: "84px",
-          },
-
-          letterSpacing: {
-            xs: "-1px",
-            sm: "-1.5px",
-            md: "-2px",
-            lg: "-2.5px",
-          },
-
-          background:
-            "linear-gradient(91.16deg, #6655EB 1.74%, #FFFFFF 43.78%, #FFFFFF 61.72%, #6655EB 102.64%)",
-
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-
-          mb: {
-            xs: 2.5,
-            sm: 3,
-            md: 3.5,
-          },
-
           maxWidth: {
             xs: "100%",
             sm: "850px",
             md: "1000px",
             lg: "1200px",
           },
+          mb: {
+            xs: 2.5,
+            sm: 3,
+            md: 3.5,
+          },
         }}
       >
-        Web & Mobile App Development
-      </MotionTypography>
+        <Typography
+          component="h1"
+          sx={{
+            width: "100%",
+            fontFamily: "Sora, sans-serif",
+            fontWeight: 700,
 
-      {/* Description */}
-      <MotionTypography
-        component="p"
+            fontSize: {
+              xs: "34px",
+              sm: "42px",
+              md: "52px",
+              lg: "64px",
+              xl: "72px",
+            },
+
+            lineHeight: {
+              xs: 1.15,
+              sm: 1.15,
+              md: 1.15,
+              lg: "76px",
+              xl: "84px",
+            },
+
+            letterSpacing: {
+              xs: "-1px",
+              sm: "-1.5px",
+              md: "-2px",
+              lg: "-2.5px",
+            },
+
+            background:
+              "linear-gradient(91.16deg, #6655EB 1.74%, #FFFFFF 43.78%, #FFFFFF 61.72%, #6655EB 102.64%)",
+
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          Web & Mobile App Development
+        </Typography>
+      </MotionBox>
+
+      {/* ================= DESCRIPTION ================= */}
+      <MotionBox
         variants={{
           hidden: {
             opacity: 0,
@@ -193,38 +195,43 @@ const DevelopmentServicesSection = () => {
           },
         }}
         sx={{
-          fontFamily: "Sora, sans-serif",
-          fontWeight: 400,
-
-          fontSize: {
-            xs: "14px",
-            sm: "15px",
-            md: "16px",
-            lg: "18px",
-          },
-
-          lineHeight: {
-            xs: "23px",
-            sm: "25px",
-            md: "27px",
-            lg: "28px",
-          },
-
-          color: "#8C8C8C",
-
+          width: "100%",
           maxWidth: {
             xs: "100%",
             sm: "600px",
             md: "640px",
           },
-
-          mb: 0,
         }}
       >
-        Custom responsive websites, SaaS platforms, and cross-platform mobile
-        applications engineered for exceptional performance, modern design, and
-        robust scalability.
-      </MotionTypography>
+        <Typography
+          component="p"
+          sx={{
+            fontFamily: "Sora, sans-serif",
+            fontWeight: 400,
+
+            fontSize: {
+              xs: "14px",
+              sm: "15px",
+              md: "16px",
+              lg: "18px",
+            },
+
+            lineHeight: {
+              xs: "23px",
+              sm: "25px",
+              md: "27px",
+              lg: "28px",
+            },
+
+            color: "#8C8C8C",
+            m: 0,
+          }}
+        >
+          Custom responsive websites, SaaS platforms, and cross-platform
+          mobile applications engineered for exceptional performance, modern
+          design, and robust scalability.
+        </Typography>
+      </MotionBox>
     </MotionBox>
   );
 };

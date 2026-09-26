@@ -1,13 +1,10 @@
-
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
 
-const StrategySessionSection = () => {
+const StrategySessionSection: React.FC = () => {
   return (
     <Box
       sx={{
@@ -120,9 +117,8 @@ const StrategySessionSection = () => {
           },
         }}
       >
-        {/* Content */}
-        <MotionTypography
-          component="h2"
+        {/* Heading Animation */}
+        <MotionBox
           initial={{
             opacity: 0,
             y: 25,
@@ -143,38 +139,46 @@ const StrategySessionSection = () => {
           sx={{
             position: "relative",
             zIndex: 1,
-            margin: 0,
-            fontFamily: "Sora, sans-serif",
-            fontWeight: 700,
-            fontStyle: "normal",
-            fontSize: {
-              xs: "22px",
-              sm: "28px",
-              md: "34px",
-              lg: "36px",
-            },
-            lineHeight: {
-              xs: "32px",
-              sm: "38px",
-              md: "44px",
-              lg: "100%",
-            },
-            letterSpacing: "0%",
-            color: "#FFFFFF",
-            textAlign: "center",
-            maxWidth: {
-              xs: "100%",
-              sm: "700px",
-              md: "900px",
-            },
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          Prefer a quick call? Book a free strategy session.
-        </MotionTypography>
+          <Typography
+            component="h2"
+            sx={{
+              margin: 0,
+              fontFamily: "Sora, sans-serif",
+              fontWeight: 700,
+              fontStyle: "normal",
+              fontSize: {
+                xs: "22px",
+                sm: "28px",
+                md: "34px",
+                lg: "36px",
+              },
+              lineHeight: {
+                xs: "32px",
+                sm: "38px",
+                md: "44px",
+                lg: "100%",
+              },
+              letterSpacing: "0%",
+              color: "#FFFFFF",
+              textAlign: "center",
+              maxWidth: {
+                xs: "100%",
+                sm: "700px",
+                md: "900px",
+              },
+            }}
+          >
+            Prefer a quick call? Book a free strategy session.
+          </Typography>
+        </MotionBox>
 
-        {/* Button */}
-        <MotionButton
-          variant="contained"
+        {/* Button Animation */}
+        <MotionBox
           initial={{
             opacity: 0,
             y: 20,
@@ -188,7 +192,6 @@ const StrategySessionSection = () => {
           whileHover={{
             scale: 1.05,
             y: -2,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
           }}
           whileTap={{
             scale: 0.96,
@@ -205,48 +208,56 @@ const StrategySessionSection = () => {
           sx={{
             position: "relative",
             zIndex: 1,
-            minWidth: {
-              xs: "145px",
-              sm: "150px",
-            },
-            minHeight: {
-              xs: "46px",
-              sm: "48px",
-            },
-            fontFamily: "Sora, sans-serif",
-            fontWeight: 600,
-            fontSize: {
-              xs: "14px",
-              sm: "15px",
-              md: "16px",
-            },
-            lineHeight: "24px",
-            textTransform: "none",
-            backgroundColor: "#F4DC80",
-            color: "#1A1A1A",
+            display: "inline-flex",
             borderRadius: "28px",
-            px: {
-              xs: "24px",
-              sm: "32px",
-              md: "40px",
-            },
-            py: {
-              xs: "10px",
-              sm: "12px",
-            },
-            boxShadow: "none",
-
-            "&:hover": {
-              backgroundColor: "#E5C94F",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
-            },
-          }}
-          onClick={() => {
-            // Add your click handler here
           }}
         >
-          Book My Call
-        </MotionButton>
+          <Button
+            variant="contained"
+            onClick={() => {
+              // Add your click handler here
+            }}
+            sx={{
+              minWidth: {
+                xs: "145px",
+                sm: "150px",
+              },
+              minHeight: {
+                xs: "46px",
+                sm: "48px",
+              },
+              fontFamily: "Sora, sans-serif",
+              fontWeight: 600,
+              fontSize: {
+                xs: "14px",
+                sm: "15px",
+                md: "16px",
+              },
+              lineHeight: "24px",
+              textTransform: "none",
+              backgroundColor: "#F4DC80",
+              color: "#1A1A1A",
+              borderRadius: "28px",
+              px: {
+                xs: "24px",
+                sm: "32px",
+                md: "40px",
+              },
+              py: {
+                xs: "10px",
+                sm: "12px",
+              },
+              boxShadow: "none",
+
+              "&:hover": {
+                backgroundColor: "#E5C94F",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
+              },
+            }}
+          >
+            Book My Call
+          </Button>
+        </MotionBox>
       </MotionBox>
     </Box>
   );

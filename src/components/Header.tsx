@@ -33,7 +33,7 @@ export default function Header() {
             onClick={() => setOpen(false)}
           >
             <img
-              src="/Images/logo.png"
+              src="/Images/header.png"
               alt="Alpha Zeta World"
               className="brand-logo"
             />

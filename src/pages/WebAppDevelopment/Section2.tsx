@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 
@@ -243,7 +242,6 @@ const WhatWeBuildSection = () => {
               }}
             >
               <MotionTypography
-                component="h3"
                 initial={{ opacity: 0, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

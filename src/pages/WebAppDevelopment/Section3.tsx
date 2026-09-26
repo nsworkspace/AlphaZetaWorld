@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
 
 const techStack = [
   "React",
@@ -20,7 +19,7 @@ const techStack = [
   "AWS",
 ];
 
-const TechStackSection = () => {
+const TechStackSection: React.FC = () => {
   return (
     <MotionBox
       initial="hidden"
@@ -58,9 +57,8 @@ const TechStackSection = () => {
         overflow: "hidden",
       }}
     >
-      {/* Section Title */}
-      <MotionTypography
-        component="h2"
+      {/* ================= SECTION TITLE ================= */}
+      <MotionBox
         variants={{
           hidden: {
             opacity: 0,
@@ -78,20 +76,6 @@ const TechStackSection = () => {
           },
         }}
         sx={{
-          fontFamily: "Sora, sans-serif",
-          fontWeight: 700,
-          fontSize: {
-            xs: "28px",
-            sm: "32px",
-            md: "36px",
-            lg: "42px",
-          },
-          lineHeight: 1.2,
-          letterSpacing: {
-            xs: "-0.5px",
-            md: "-1px",
-          },
-          color: "#FFFFFF",
           mb: {
             xs: 3,
             sm: 3.5,
@@ -99,99 +83,123 @@ const TechStackSection = () => {
           },
         }}
       >
-        Our Tech Stack
-      </MotionTypography>
+        <Typography
+          component="h2"
+          sx={{
+            fontFamily: "Sora, sans-serif",
+            fontWeight: 700,
+            fontSize: {
+              xs: "28px",
+              sm: "32px",
+              md: "36px",
+              lg: "42px",
+            },
+            lineHeight: 1.2,
+            letterSpacing: {
+              xs: "-0.5px",
+              md: "-1px",
+            },
+            color: "#FFFFFF",
+            m: 0,
+          }}
+        >
+          Our Tech Stack
+        </Typography>
+      </MotionBox>
 
-      {/* Tech Stack */}
-      <Grid
-        container
-        spacing={{
-          xs: 1,
-          sm: 1.5,
-          md: 1.5,
+      {/* ================= TECH STACK ================= */}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: {
+            xs: 1,
+            sm: 1.5,
+            md: 1.5,
+          },
+          width: "100%",
         }}
       >
         {techStack.map((tech, index) => (
-          <Grid
-            size={{ xs: "auto" }}
+          <MotionBox
             key={index}
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 25,
+                scale: 0.9,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              },
+            }}
+            whileHover={{
+              y: -5,
+              scale: 1.05,
+              borderColor: "#6655EB",
+              boxShadow:
+                "0 8px 25px rgba(102, 85, 235, 0.15)",
+            }}
+            whileTap={{
+              scale: 0.96,
+            }}
+            sx={{
+              backgroundColor: "#141416",
+              border: "1px solid #222226",
+              borderRadius: {
+                xs: "20px",
+                sm: "22px",
+                md: "24px",
+              },
+              px: {
+                xs: 2,
+                sm: 2.5,
+                md: 3,
+              },
+              py: {
+                xs: 0.9,
+                sm: 1,
+                md: 1.2,
+              },
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition:
+                "border-color 0.3s ease, box-shadow 0.3s ease",
+              cursor: "default",
+              flexShrink: 0,
+            }}
           >
-            <MotionBox
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 25,
-                  scale: 0.9,
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: {
-                    duration: 0.5,
-                    ease: [0.22, 1, 0.36, 1],
-                  },
-                },
-              }}
-              whileHover={{
-                y: -5,
-                scale: 1.05,
-                borderColor: "#6655EB",
-                boxShadow: "0 8px 25px rgba(102, 85, 235, 0.15)",
-              }}
-              whileTap={{
-                scale: 0.96,
-              }}
+            <Typography
+              component="span"
               sx={{
-                backgroundColor: "#141416",
-                border: "1px solid #222226",
-                borderRadius: {
-                  xs: "20px",
-                  sm: "22px",
-                  md: "24px",
+                fontFamily: "Sora, sans-serif",
+                fontWeight: 500,
+                fontSize: {
+                  xs: "12px",
+                  sm: "13px",
+                  md: "14px",
                 },
-                px: {
-                  xs: 2,
-                  sm: 2.5,
-                  md: 3,
+                lineHeight: {
+                  xs: "18px",
+                  md: "20px",
                 },
-                py: {
-                  xs: 0.9,
-                  sm: 1,
-                  md: 1.2,
-                },
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition:
-                  "border-color 0.3s ease, box-shadow 0.3s ease",
-                cursor: "default",
+                color: "#FFFFFF",
+                whiteSpace: "nowrap",
+                m: 0,
               }}
             >
-              <Typography
-                component="span"
-                sx={{
-                  fontFamily: "Sora, sans-serif",
-                  fontWeight: 500,
-                  fontSize: {
-                    xs: "12px",
-                    sm: "13px",
-                    md: "14px",
-                  },
-                  lineHeight: {
-                    xs: "18px",
-                    md: "20px",
-                  },
-                  color: "#FFFFFF",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {tech}
-              </Typography>
-            </MotionBox>
-          </Grid>
+              {tech}
+            </Typography>
+          </MotionBox>
         ))}
-      </Grid>
+      </Box>
     </MotionBox>
   );
 };

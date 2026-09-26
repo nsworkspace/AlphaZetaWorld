@@ -3,7 +3,6 @@ import { Box, Typography, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
 
 const ClientAdvantageSection: React.FC = () => {
   return (
@@ -40,7 +39,11 @@ const ClientAdvantageSection: React.FC = () => {
       <MotionBox
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6 },
+          },
         }}
         sx={{ mb: 4 }}
       >
@@ -63,46 +66,79 @@ const ClientAdvantageSection: React.FC = () => {
       </MotionBox>
 
       {/* Main Quote Heading */}
-      <MotionTypography
-        component="blockquote"
+      <MotionBox
         variants={{
           hidden: { opacity: 0, y: 30 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6 },
+          },
         }}
         sx={{
-          fontFamily: "Sora, sans-serif",
-          fontWeight: 600,
-          fontSize: { xs: "20px", sm: "28px", md: "36px", lg: "42px" },
-          lineHeight: { xs: 1.4, md: 1.2 },
-          color: "#FFFFFF",
-          maxWidth: "1050px",
           mb: 5,
-          m: 0,
-          p: 0,
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        "When you hire Alpha Zeta World, you are working with developers and strategists who have built and shipped real commercial products — not just client websites. We understand the full lifecycle because we live it every day."
-      </MotionTypography>
+        <Typography
+          component="blockquote"
+          sx={{
+            fontFamily: "Sora, sans-serif",
+            fontWeight: 600,
+            fontSize: {
+              xs: "20px",
+              sm: "28px",
+              md: "36px",
+              lg: "42px",
+            },
+            lineHeight: {
+              xs: 1.4,
+              md: 1.2,
+            },
+            color: "#FFFFFF",
+            maxWidth: "1050px",
+            m: 0,
+            p: 0,
+          }}
+        >
+          "When you hire Alpha Zeta World, you are working with developers and
+          strategists who have built and shipped real commercial products —
+          not just client websites. We understand the full lifecycle because
+          we live it every day."
+        </Typography>
+      </MotionBox>
 
       {/* Author / Directive Signature */}
-      <MotionTypography
-        component="cite"
+      <MotionBox
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        }}
-        sx={{
-          fontFamily: "Sora, sans-serif",
-          fontWeight: 600,
-          fontSize: { xs: "11px", sm: "12px" },
-          letterSpacing: "0.1em",
-          color: "#F4DC80",
-          fontStyle: "normal",
-          display: "block",
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6 },
+          },
         }}
       >
-        – ALPHA ZETA WORLD SYSTEM DIRECTIVE
-      </MotionTypography>
+        <Typography
+          component="cite"
+          sx={{
+            fontFamily: "Sora, sans-serif",
+            fontWeight: 600,
+            fontSize: {
+              xs: "11px",
+              sm: "12px",
+            },
+            letterSpacing: "0.1em",
+            color: "#F4DC80",
+            fontStyle: "normal",
+            display: "block",
+          }}
+        >
+          – ALPHA ZETA WORLD SYSTEM DIRECTIVE
+        </Typography>
+      </MotionBox>
     </MotionBox>
   );
 };

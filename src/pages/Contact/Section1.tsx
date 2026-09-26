@@ -3,9 +3,8 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
 
-const VisionSection = () => {
+const VisionSection: React.FC = () => {
   return (
     <Box
       sx={{
@@ -55,9 +54,8 @@ const VisionSection = () => {
           pb: "16px",
         }}
       >
-        {/* Small Heading */}
-        <MotionTypography
-          component="div"
+        {/* ================= SMALL HEADING ================= */}
+        <MotionBox
           variants={{
             hidden: {
               opacity: 0,
@@ -73,29 +71,35 @@ const VisionSection = () => {
             },
           }}
           sx={{
-            fontFamily: "Sora, sans-serif",
-            fontSize: {
-              xs: "11px",
-              sm: "12px",
-              md: "14px",
-            },
-            lineHeight: "100%",
-            fontWeight: 600,
-            letterSpacing: "0.03em",
-            textTransform: "uppercase",
-            color: "#F4DC80",
             mb: {
               xs: "16px",
               md: "20px",
             },
           }}
         >
-          START YOUR PROJECT
-        </MotionTypography>
+          <Typography
+            component="div"
+            sx={{
+              fontFamily: "Sora, sans-serif",
+              fontSize: {
+                xs: "11px",
+                sm: "12px",
+                md: "14px",
+              },
+              lineHeight: "100%",
+              fontWeight: 600,
+              letterSpacing: "0.03em",
+              textTransform: "uppercase",
+              color: "#F4DC80",
+              m: 0,
+            }}
+          >
+            START YOUR PROJECT
+          </Typography>
+        </MotionBox>
 
-        {/* Main Heading */}
-        <MotionTypography
-          component="h1"
+        {/* ================= MAIN HEADING ================= */}
+        <MotionBox
           variants={{
             hidden: {
               opacity: 0,
@@ -113,54 +117,60 @@ const VisionSection = () => {
             },
           }}
           sx={{
-            margin: 0,
-            fontFamily: "Sora, sans-serif",
-            fontSize: {
-              xs: "32px",
-              sm: "44px",
-              md: "54px",
-              lg: "64px",
-            },
-            lineHeight: {
-              xs: "42px",
-              sm: "52px",
-              md: "64px",
-              lg: "76px",
-            },
-            fontWeight: 700,
-            letterSpacing: "0%",
-            background:
-              "linear-gradient(91.16deg, #6655EB 1.74%, #FFFFFF 43.78%, #FFFFFF 61.72%, #6655EB 102.64%)",
-            backgroundSize: "200% auto",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            width: "fit-content",
-            maxWidth: "100%",
             mb: {
               xs: "16px",
               md: "20px",
             },
-            animation: "gradientMove 6s ease-in-out infinite",
-            "@keyframes gradientMove": {
-              "0%": {
-                backgroundPosition: "0% center",
-              },
-              "50%": {
-                backgroundPosition: "100% center",
-              },
-              "100%": {
-                backgroundPosition: "0% center",
-              },
-            },
           }}
         >
-          Tell Us About Your Vision
-        </MotionTypography>
+          <Typography
+            component="h1"
+            sx={{
+              margin: 0,
+              fontFamily: "Sora, sans-serif",
+              fontSize: {
+                xs: "32px",
+                sm: "44px",
+                md: "54px",
+                lg: "64px",
+              },
+              lineHeight: {
+                xs: "42px",
+                sm: "52px",
+                md: "64px",
+                lg: "76px",
+              },
+              fontWeight: 700,
+              letterSpacing: "0%",
+              background:
+                "linear-gradient(91.16deg, #6655EB 1.74%, #FFFFFF 43.78%, #FFFFFF 61.72%, #6655EB 102.64%)",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              width: "fit-content",
+              maxWidth: "100%",
+              animation: "gradientMove 6s ease-in-out infinite",
 
-        {/* Description */}
-        <MotionTypography
-          component="p"
+              "@keyframes gradientMove": {
+                "0%": {
+                  backgroundPosition: "0% center",
+                },
+                "50%": {
+                  backgroundPosition: "100% center",
+                },
+                "100%": {
+                  backgroundPosition: "0% center",
+                },
+              },
+            }}
+          >
+            Tell Us About Your Vision
+          </Typography>
+        </MotionBox>
+
+        {/* ================= DESCRIPTION ================= */}
+        <MotionBox
           variants={{
             hidden: {
               opacity: 0,
@@ -175,34 +185,37 @@ const VisionSection = () => {
               },
             },
           }}
-          sx={{
-            margin: 0,
-            maxWidth: "600px",
-            fontFamily: "Sora, sans-serif",
-            fontSize: {
-              xs: "14px",
-              sm: "16px",
-              md: "18px",
-            },
-            lineHeight: {
-              xs: "22px",
-              sm: "25px",
-              md: "28px",
-            },
-            fontWeight: 400,
-            letterSpacing: "0%",
-            color: "#8C8C8C",
-          }}
         >
-          Complete the design brief below, and our engineering partners will
-          analyze
-          <br className="desktop-break" />
-          {" "}
-          your scope and get back to you within 24 hours.
-        </MotionTypography>
+          <Typography
+            component="p"
+            sx={{
+              margin: 0,
+              maxWidth: "600px",
+              fontFamily: "Sora, sans-serif",
+              fontSize: {
+                xs: "14px",
+                sm: "16px",
+                md: "18px",
+              },
+              lineHeight: {
+                xs: "22px",
+                sm: "25px",
+                md: "28px",
+              },
+              fontWeight: 400,
+              letterSpacing: "0%",
+              color: "#8C8C8C",
+            }}
+          >
+            Complete the design brief below, and our engineering partners will
+            analyze
+            <br className="desktop-break" /> your scope and get back to you
+            within 24 hours.
+          </Typography>
+        </MotionBox>
       </MotionBox>
 
-      {/* Mobile responsive styles */}
+      {/* ================= MOBILE RESPONSIVE STYLES ================= */}
       <style>
         {`
           @media (max-width: 600px) {

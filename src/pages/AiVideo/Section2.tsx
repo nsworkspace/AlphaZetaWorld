@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
 
 const servicesData = [
   {
@@ -73,12 +72,15 @@ const servicesData = [
   },
 ];
 
-const WhatWeCreateSection = () => {
+const WhatWeCreateSection: React.FC = () => {
   return (
     <MotionBox
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{
+        once: true,
+        amount: 0.15,
+      }}
       variants={{
         hidden: {
           opacity: 0,
@@ -139,6 +141,7 @@ const WhatWeCreateSection = () => {
         <Typography
           component="h2"
           sx={{
+            margin: 0,
             fontFamily: "Sora, sans-serif",
             fontWeight: 700,
             fontSize: {
@@ -189,82 +192,102 @@ const WhatWeCreateSection = () => {
             m: 0,
           }}
         >
-          An elegant blend of creative direction and deep neural asset synthesis.
+          An elegant blend of creative direction and deep neural asset
+          synthesis.
         </Typography>
       </MotionBox>
 
       {/* Services Grid */}
-      <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, minmax(0, 1fr))",
+            md: "repeat(3, minmax(0, 1fr))",
+          },
+          gap: {
+            xs: 2,
+            sm: 2.5,
+            md: 3,
+          },
+          width: "100%",
+        }}
+      >
         {servicesData.map((service, index) => (
-          <Grid
-            size={{
-              xs: 12,
-              sm: 6,
-              md: 4,
+          <MotionBox
+            key={service.title}
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 50,
+                scale: 0.96,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              },
             }}
-            key={index}
+            whileHover={{
+              y: -8,
+              borderColor: "#6655EB",
+              boxShadow: "0 15px 40px rgba(102, 85, 235, 0.12)",
+            }}
+            whileTap={{
+              scale: 0.98,
+            }}
+            sx={{
+              backgroundColor: "#141416",
+              border: "1px solid #1F1F24",
+              borderRadius: {
+                xs: "12px",
+                sm: "14px",
+                md: "16px",
+              },
+              p: {
+                xs: 2.5,
+                sm: 3,
+                md: 4,
+              },
+              minHeight: {
+                xs: "auto",
+                sm: "190px",
+                md: "210px",
+              },
+              height: "100%",
+              boxSizing: "border-box",
+              display: "flex",
+              flexDirection: "column",
+              transition:
+                "border-color 0.3s ease, box-shadow 0.3s ease",
+              cursor: "default",
+            }}
           >
+            {/* Card Title Animation */}
             <MotionBox
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 50,
-                  scale: 0.96,
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: {
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  },
-                },
+              initial={{
+                opacity: 0,
+                x: -15,
               }}
-              whileHover={{
-                y: -8,
-                borderColor: "#6655EB",
-                boxShadow: "0 15px 40px rgba(102, 85, 235, 0.12)",
+              whileInView={{
+                opacity: 1,
+                x: 0,
               }}
-              whileTap={{
-                scale: 0.98,
+              viewport={{
+                once: true,
               }}
-              sx={{
-                backgroundColor: "#141416",
-                border: "1px solid #1F1F24",
-                borderRadius: {
-                  xs: "12px",
-                  sm: "14px",
-                  md: "16px",
-                },
-                p: {
-                  xs: 2.5,
-                  sm: 3,
-                  md: 4,
-                },
-                minHeight: {
-                  xs: "auto",
-                  sm: "190px",
-                  md: "210px",
-                },
-                height: "100%",
-                boxSizing: "border-box",
-                display: "flex",
-                flexDirection: "column",
-                transition:
-                  "border-color 0.3s ease, box-shadow 0.3s ease",
-                cursor: "default",
+              transition={{
+                duration: 0.5,
+                delay: 0.1,
               }}
             >
-              <MotionTypography
+              <Typography
                 component="h3"
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.1,
-                }}
                 sx={{
                   fontFamily: "Sora, sans-serif",
                   fontWeight: 600,
@@ -282,35 +305,37 @@ const WhatWeCreateSection = () => {
                     xs: 1,
                     md: 1.5,
                   },
+                  marginTop: 0,
                 }}
               >
                 {service.title}
-              </MotionTypography>
-
-              <Typography
-                component="p"
-                sx={{
-                  fontFamily: "Sora, sans-serif",
-                  fontWeight: 400,
-                  fontSize: {
-                    xs: "13px",
-                    sm: "14px",
-                    md: "15px",
-                  },
-                  lineHeight: {
-                    xs: "21px",
-                    md: "24px",
-                  },
-                  color: "#8C8C8C",
-                  m: 0,
-                }}
-              >
-                {service.description}
               </Typography>
             </MotionBox>
-          </Grid>
+
+            {/* Card Description */}
+            <Typography
+              component="p"
+              sx={{
+                fontFamily: "Sora, sans-serif",
+                fontWeight: 400,
+                fontSize: {
+                  xs: "13px",
+                  sm: "14px",
+                  md: "15px",
+                },
+                lineHeight: {
+                  xs: "21px",
+                  md: "24px",
+                },
+                color: "#8C8C8C",
+                m: 0,
+              }}
+            >
+              {service.description}
+            </Typography>
+          </MotionBox>
         ))}
-      </Grid>
+      </Box>
     </MotionBox>
   );
 };
