@@ -17,6 +17,9 @@ const loginAdmin = async (req, res, next) => {
             email: email.trim().toLowerCase()
         }).select("+password");
 
+        console.log("LOGIN EMAIL:", email);
+        console.log("ADMIN FOUND:", admin ? "YES" : "NO");
+
         if (!admin) {
             return res.status(401).json({
                 success: false,
