@@ -5,12 +5,21 @@ const links = [
   ["Home", "/"],
   ["About Us", "/about"],
   ["Services", "/services"],
-  ["Products", "/products"],
+  ["Products", "/products-lab"],
   ["Contact", "/contact"],
+];
+
+// 🎯 Services dropdown items
+const serviceDropdown = [
+  { label: "Digital Solution", path: "/services" },
+  { label: "Web App Development", path: "/web-app-development" },
+  { label: "AI Video Content", path: "/ai-video" },
+  { label: "SEO AI Search", path: "/seo-ai" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
     <>
@@ -24,7 +33,7 @@ export default function Header() {
             onClick={() => setOpen(false)}
           >
             <img
-              src="/images/logo.png"
+              src="/Images/logo.png"
               alt="Alpha Zeta World"
               className="brand-logo"
             />
@@ -41,18 +50,63 @@ export default function Header() {
 
           {/* Nav */}
           <nav className={open ? "nav open" : "nav"}>
-            {links.map(([label, path]) => (
-              <NavLink
-                key={path}
-                to={path}
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </NavLink>
-            ))}
+            {links.map(([label, path]) => {
+              // 🎯 Services ki special dropdown handle
+              if (label === "Services") {
+                return (
+                  <div
+                    key={path}
+                    className="nav-dropdown"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    <NavLink
+                      to={path}
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active nav-link-has-arrow" : "nav-link nav-link-has-arrow"
+                      }
+                      onClick={() => setOpen(false)}
+                    >
+                      {label}
+                      <span className="nav-arrow">▾</span>
+                    </NavLink>
+
+                    {/* Dropdown Menu */}
+                    <div className={servicesOpen ? "dropdown-menu open" : "dropdown-menu"}>
+                      {serviceDropdown.map((item) => (
+                        <NavLink
+                          key={item.path}
+                          to={item.path}
+                          className={({ isActive }) =>
+                            isActive ? "dropdown-item active" : "dropdown-item"
+                          }
+                          onClick={() => {
+                            setOpen(false);
+                            setServicesOpen(false);
+                          }}
+                        >
+                          {item.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Migatha links
+              return (
+                <NavLink
+                  key={path}
+                  to={path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </NavLink>
+              );
+            })}
 
             <NavLink
               to="/contact"
@@ -167,6 +221,10 @@ export default function Header() {
           padding: 0.5rem 0;
 
           transition: color 0.25s ease;
+
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
         }
 
         .nav-link::after {
@@ -199,6 +257,119 @@ export default function Header() {
 
         .nav-link.active::after {
           width: 100%;
+        }
+
+        /* 🎯 Arrow next to Services */
+        .nav-link-has-arrow .nav-arrow {
+          font-size: 0.7rem;
+          margin-left: 0.15rem;
+          transition: transform 0.3s ease;
+          display: inline-block;
+        }
+
+        .nav-dropdown:hover .nav-arrow {
+          transform: rotate(180deg);
+        }
+
+        /* =========================
+           🎯 DROPDOWN MENU
+        ========================= */
+
+        .nav-dropdown {
+          position: relative;
+          display: inline-block;
+          padding: 0.5rem 0;
+        }
+
+        .dropdown-menu {
+          position: absolute;
+
+          top: 100%;
+          left: 50%;
+
+          transform: translateX(-50%) translateY(10px);
+
+          min-width: 240px;
+
+          background: #ffffff;
+
+          border: 1px solid #e5ece9;
+          border-radius: 14px;
+
+          padding: 0.5rem;
+
+          box-shadow:
+            0 20px 40px -10px rgba(10, 75, 63, 0.15),
+            0 8px 16px -6px rgba(10, 75, 63, 0.08);
+
+          opacity: 0;
+          pointer-events: none;
+
+          transition:
+            opacity 0.25s ease,
+            transform 0.25s ease;
+
+          z-index: 50;
+        }
+
+        .dropdown-menu.open {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateX(-50%) translateY(6px);
+        }
+
+        /* Small arrow on top of dropdown */
+        .dropdown-menu::before {
+          content: "";
+
+          position: absolute;
+
+          top: -6px;
+          left: 50%;
+
+          transform: translateX(-50%) rotate(45deg);
+
+          width: 12px;
+          height: 12px;
+
+          background: #ffffff;
+
+          border-top: 1px solid #e5ece9;
+          border-left: 1px solid #e5ece9;
+
+          border-top-left-radius: 2px;
+        }
+
+        .dropdown-item {
+          display: block;
+
+          padding: 0.7rem 1rem;
+
+          font-size: 0.9rem;
+          font-weight: 500;
+
+          color: #1f2a3d;
+
+          text-decoration: none;
+
+          border-radius: 10px;
+
+          transition:
+            background 0.2s ease,
+            color 0.2s ease,
+            transform 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+          background: #f2f7f5;
+          color: #0A4B3F;
+          transform: translateX(3px);
+        }
+
+        .dropdown-item.active {
+          background: #ecfdf5;
+          color: #0A4B3F;
+          font-weight: 700;
         }
 
         /* =========================
@@ -365,6 +536,9 @@ export default function Header() {
             transition:
               transform 0.3s ease,
               opacity 0.3s ease;
+
+            max-height: 90vh;
+            overflow-y: auto;
           }
 
           .nav.open {
@@ -387,6 +561,60 @@ export default function Header() {
 
           .nav-link.active {
             color: #0A4B3F;
+          }
+
+          /* 🎯 Mobile dropdown — static, always visible under Services */
+          .nav-dropdown {
+            display: block;
+            padding: 0;
+            width: 100%;
+          }
+
+          .dropdown-menu {
+            position: static;
+            transform: none;
+
+            min-width: 0;
+            width: 100%;
+
+            box-shadow: none;
+            border: none;
+
+            border-radius: 0;
+
+            padding: 0 0 0 1rem;
+
+            opacity: 1;
+            pointer-events: auto;
+
+            max-height: 0;
+            overflow: hidden;
+
+            transition:
+              max-height 0.35s ease,
+              padding 0.3s ease;
+          }
+
+          /* Only open when parent hovered OR .open class */
+          .nav-dropdown:hover .dropdown-menu,
+          .dropdown-menu.open {
+            max-height: 400px;
+            padding: 0.25rem 0 0.5rem 1rem;
+          }
+
+          .dropdown-menu::before {
+            display: none;
+          }
+
+          .dropdown-item {
+            padding: 0.65rem 0.75rem;
+            font-size: 0.9rem;
+
+            border-bottom: 1px solid #f3f7f5;
+          }
+
+          .dropdown-item:last-child {
+            border-bottom: none;
           }
 
           .nav-cta {
@@ -425,6 +653,11 @@ export default function Header() {
             width: 40px;
             height: 40px;
             font-size: 1.1rem;
+          }
+
+          .dropdown-item {
+            font-size: 0.85rem;
+            padding: 0.6rem 0.65rem;
           }
         }
       `}</style>

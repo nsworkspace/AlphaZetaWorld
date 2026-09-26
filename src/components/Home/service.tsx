@@ -28,7 +28,7 @@ function FeatureItem({ icon, title }: { icon: React.ReactNode; title: string }) 
 // 3. MAIN COMPONENT
 // ==========================================
 export default function ServicesOverview() {
-  const IMAGE_URL = "/images/servicecard.png";
+  const IMAGE_URL = "/Images/servicecard.png";
   const DOWNLOAD_FILENAME = "AlphaZetaWorld-Services-Overview.png";
 
   const handleDownload = async () => {

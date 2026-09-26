@@ -48,7 +48,7 @@ const socialLinks = [
 ];
 
 const Footer: React.FC = () => {
-  const logoUrl = "/images/logo.png";
+  const logoUrl = "/Images/logo.png";
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 

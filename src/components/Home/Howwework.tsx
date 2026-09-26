@@ -19,7 +19,7 @@ const services = [
         and real business value.
       </>
     ),
-    image: "/images/homeweb.png",
+    image: "/Images/homeweb.png",
   },
   {
     icon: "ai",
@@ -39,7 +39,7 @@ const services = [
         your brand faster.
       </>
     ),
-    image: "/images/homemo.png",
+    image: "/Images/homemo.png",
   },
   {
     icon: "seo",
@@ -59,7 +59,7 @@ const services = [
         proven SEO strategies.
       </>
     ),
-    image: "/images/homeseo.png",
+    image: "/Images/homeseo.png",
   },
   {
     icon: "product",
@@ -79,7 +79,7 @@ const services = [
         problems and create new opportunities.
       </>
     ),
-    image: "/images/homedigi.png",
+    image: "/Images/homedigi.png",
   },
 ];
 

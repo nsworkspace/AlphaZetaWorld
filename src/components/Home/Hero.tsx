@@ -1408,7 +1408,7 @@ const Hero: React.FC = () => {
           {/* RIGHT IMAGE */}
           <div className="az-hero-right">
             <img
-              src="/images/heroimage.png"
+              src="/Images/heroimage.png"
               alt="Technology"
               className="az-hero-image"
             />

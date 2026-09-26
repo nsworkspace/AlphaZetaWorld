@@ -17,28 +17,28 @@ const solutionsData = [
     title: 'Web & Mobile App Development',
     description: 'Full-stack SaaS solutions, web apps, responsive platforms, and robust cross-platform mobile products optimized for conversion and scale.',
     tags: ['React', 'Node.js', 'Next.js', 'Flutter'],
-    image: '/images/serweb.svg',
+    image: '/Images/serweb.svg',
   },
   {
     id: 2,
     title: 'AI Video Ads & Content',
     description: 'Production-grade automated video generation, Instagram Reels, Shorts, virtual influencers, and digital ad ecosystems powered by autonomous agents.',
     tags: ['Synthetic Avatars', 'Lip Sync', 'Autonomous Editors'],
-    image: '/images/serai.svg',
+    image: '/Images/serai.svg',
   },
   {
     id: 3,
     title: 'Google SEO & AI Search',
     description: 'Strategic search engine positioning (SEO) optimized for traditional search algorithms, ChatGPT, Perplexity, and Google AI Overviews.',
     tags: ['Schema Markup', 'Core Web Vitals', 'Content Networks'],
-    image: '/images/serseo.svg',
+    image: '/Images/serseo.svg',
   },
   {
     id: 4,
     title: 'Digital Product Lab',
     description: 'Our proprietary laboratory where we build and commercialize tools, SaaS platforms, and software, applying first-hand lessons directly into client work.',
     tags: ['In-House SaaS', 'Rapid Prototyping'],
-    image: '/images/serdigi.svg',
+    image: '/Images/serdigi.svg',
   },
 ];
 

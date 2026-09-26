@@ -6,21 +6,21 @@ const teamData = [
     name: "Alex Carter",
     role: "Partner & Head of Tech",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=300",
+      "https://images.unsplash.comto=format&fit=crop&q=80&w=400&h=300",
   },
   {
     id: 2,
     name: "Elena Rostova",
     role: "Partner & Head of Product",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=300",
+      "https://images.unsplash.comb8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=300",
   },
   {
     id: 3,
     name: "Devon Miller",
     role: "Director of AI Systems",
     image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=300",
+      "https://images.unsplash.cof7cbe7?auto=format&fit=crop&q=80&w=400&h=300",
   },
 ];
 

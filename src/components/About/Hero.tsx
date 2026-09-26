@@ -91,7 +91,7 @@ const AboutSection: React.FC = () => {
           {/* RIGHT IMAGE */}
           <div className="principle-image">
             <img
-              src="/images/about.png"
+              src="/Images/about.png"
               alt="Guiding Principle"
             />
           </div>

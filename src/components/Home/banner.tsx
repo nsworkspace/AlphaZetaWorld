@@ -151,7 +151,7 @@ const Banner: React.FC = () => {
         {/* RIGHT SIDE IMAGE */}
         <div className="banner-image">
           <img
-            src="/images/homebanner.png"
+            src="/Images/homebanner.png"
             alt="Dashboard"
           />
         </div>
