@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^9.4.0",
     "@mui/material": "^9.4.0",
     "lucide-react": "^1.48.0",
     "motion": "^13.4.4",
+=======
+    "lucide-react": "^1.48.0",
+>>>>>>> 93e52e0 (Complete website pages and components)
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1",

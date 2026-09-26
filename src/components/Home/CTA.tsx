@@ -1,0 +1,508 @@
+import React, { useEffect, useRef, useState } from "react";
+
+const CTASection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  /* =====================================================
+     INTERSECTION OBSERVER — Repeats on scroll up/down
+  ===================================================== */
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`cta-section${isVisible ? " cta-visible" : ""}`}
+    >
+      <div className="cta-container">
+
+        <h2 className="cta-title">
+          Ready to Build Your <span>Digital Future?</span>
+        </h2>
+
+        <p className="cta-description">
+          Whether you need a custom platform, AI-powered content, or search
+          visibility – let’s talk. Alpha Zeta World is ready to build,
+          <br />
+          launch, and grow with you.
+        </p>
+
+        <h3 className="cta-subtitle">
+          Unlock Your Digital Potential Today
+        </h3>
+
+        <div className="cta-buttons">
+          <button className="cta-primary">
+            <span>Start a Project</span>
+            <span className="cta-arrow">→</span>
+          </button>
+
+          <button className="cta-secondary">
+            Book a Strategy Call
+          </button>
+        </div>
+
+      </div>
+
+      <style>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        .cta-section {
+          width: 100%;
+          background: #ffffff;
+          padding: 70px 20px 80px;
+          overflow: hidden;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .cta-container {
+          width: 100%;
+          max-width: 1400px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .cta-title {
+          margin: 0;
+          color: #152535;
+          font-size: 48px;
+          line-height: 1.1;
+          font-weight: 700;
+          letter-spacing: -2px;
+
+          opacity: 0;
+        }
+
+        .cta-title span {
+          color: #0A4B3F;
+
+          background:
+            linear-gradient(
+              90deg,
+              #0A4B3F 0%,
+              #0F5C4A 50%,
+              #0A4B3F 100%
+            );
+
+          background-size: 200% 100%;
+
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          animation:
+            ctaGradientShift
+            5s
+            ease
+            infinite;
+        }
+
+        /* =========================
+           DESCRIPTION
+        ========================= */
+
+        .cta-description {
+          margin: 24px auto 0;
+          color: #536174;
+          font-size: 18px;
+          line-height: 1.5;
+          font-weight: 400;
+
+          opacity: 0;
+        }
+
+        /* =========================
+           SUBTITLE
+        ========================= */
+
+        .cta-subtitle {
+          margin: 30px 0 25px;
+          color: #0A4B3F;
+          font-size: 22px;
+          line-height: 1.3;
+          font-weight: 600;
+
+          opacity: 0;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .cta-buttons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+
+          opacity: 0;
+        }
+
+        .cta-primary,
+        .cta-secondary {
+          height: 56px;
+          min-width: 290px;
+          padding: 0 28px;
+          border-radius: 30px;
+          font-family: inherit;
+          font-size: 17px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        /* =========================
+           PRIMARY BUTTON
+        ========================= */
+
+        .cta-primary {
+          position: relative;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+
+          border: none;
+          background: #0A4B3F;
+          color: #ffffff;
+
+          overflow: hidden;
+
+          box-shadow:
+            0 0 0 rgba(10, 75, 63, 0);
+        }
+
+        .cta-primary::before {
+          content: "";
+
+          position: absolute;
+
+          top: 0;
+          left: -120%;
+
+          width: 80%;
+          height: 100%;
+
+          background:
+            linear-gradient(
+              120deg,
+              transparent,
+              rgba(255, 255, 255, 0.35),
+              transparent
+            );
+
+          transform: skewX(-20deg);
+
+          animation:
+            ctaShine
+            3.5s
+            ease-in-out
+            2s
+            infinite;
+        }
+
+        .cta-arrow {
+          font-size: 27px;
+          font-weight: 400;
+          line-height: 1;
+
+          transition: transform 0.3s ease;
+        }
+
+        .cta-primary:hover {
+          transform: translateY(-3px);
+
+          box-shadow:
+            0 12px 28px rgba(10, 75, 63, 0.28);
+        }
+
+        .cta-primary:hover .cta-arrow {
+          transform: translateX(6px);
+        }
+
+        /* =========================
+           SECONDARY BUTTON
+        ========================= */
+
+        .cta-secondary {
+          border: 1.5px solid #0A4B3F;
+          background: #ffffff;
+          color: #0A4B3F;
+        }
+
+        .cta-secondary:hover {
+          background: #eaf2f0;
+          transform: translateY(-3px);
+
+          box-shadow:
+            0 12px 24px rgba(10, 75, 63, 0.12);
+        }
+
+        /* =========================
+           VISIBLE STATE — Animations
+        ========================= */
+
+        .cta-section.cta-visible .cta-title {
+          animation:
+            ctaTitleIn
+            1s
+            cubic-bezier(0.22, 1, 0.36, 1)
+            0s
+            forwards;
+        }
+
+        .cta-section.cta-visible .cta-description {
+          animation:
+            ctaBlurIn
+            1s
+            cubic-bezier(0.22, 1, 0.36, 1)
+            0.25s
+            forwards;
+        }
+
+        .cta-section.cta-visible .cta-subtitle {
+          animation:
+            ctaSubtitleIn
+            0.9s
+            cubic-bezier(0.22, 1, 0.36, 1)
+            0.5s
+            forwards;
+        }
+
+        .cta-section.cta-visible .cta-buttons {
+          animation:
+            ctaFadeUp
+            0.9s
+            cubic-bezier(0.22, 1, 0.36, 1)
+            0.75s
+            forwards;
+        }
+
+        .cta-section.cta-visible .cta-primary {
+          animation:
+            ctaBtnPulse
+            3s
+            ease-in-out
+            1.6s
+            infinite;
+        }
+
+        /* =========================
+           KEYFRAMES
+        ========================= */
+
+        @keyframes ctaTitleIn {
+          from {
+            opacity: 0;
+            transform: translateY(35px) scale(0.97);
+            letter-spacing: 2px;
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            letter-spacing: -2px;
+          }
+        }
+
+        @keyframes ctaBlurIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+          }
+        }
+
+        @keyframes ctaSubtitleIn {
+          0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+          }
+
+          60% {
+            opacity: 1;
+            transform: translateY(-3px) scale(1.02);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes ctaFadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes ctaBtnPulse {
+          0%,
+          100% {
+            box-shadow: 0 0 0 rgba(10, 75, 63, 0);
+          }
+
+          50% {
+            box-shadow: 0 0 24px rgba(10, 75, 63, 0.35);
+          }
+        }
+
+        @keyframes ctaShine {
+          0% {
+            left: -120%;
+          }
+
+          60% {
+            left: 130%;
+          }
+
+          100% {
+            left: 130%;
+          }
+        }
+
+        @keyframes ctaGradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+
+          100% {
+            background-position: 200% 50%;
+          }
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+          .cta-section {
+            padding: 60px 20px 65px;
+          }
+
+          .cta-title {
+            font-size: 40px;
+          }
+
+          .cta-description {
+            font-size: 16px;
+          }
+
+          .cta-subtitle {
+            font-size: 20px;
+          }
+
+          .cta-primary,
+          .cta-secondary {
+            min-width: 250px;
+            height: 52px;
+            font-size: 16px;
+          }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+          .cta-section {
+            padding: 50px 18px 55px;
+          }
+
+          .cta-title {
+            font-size: 32px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+          }
+
+          .cta-description {
+            margin-top: 18px;
+            font-size: 15px;
+            line-height: 1.5;
+          }
+
+          .cta-description br {
+            display: none;
+          }
+
+          .cta-subtitle {
+            margin: 24px 0 20px;
+            font-size: 18px;
+          }
+
+          .cta-buttons {
+            flex-direction: column;
+            gap: 12px;
+          }
+
+          .cta-primary,
+          .cta-secondary {
+            width: 100%;
+            min-width: 0;
+            height: 50px;
+            font-size: 16px;
+          }
+        }
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+          .cta-section *,
+          .cta-section *::before,
+          .cta-section *::after {
+            animation: none !important;
+            transition: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default CTASection;

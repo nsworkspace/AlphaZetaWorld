@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Products from "./pages/Products";
+<<<<<<< HEAD
 import Contact from "./pages/Contact/Contact";
 import WebAppDevelopment from "./pages/WebAppDevelopment/WebAppDevelopment";
 import AiVideo from "./pages/AiVideo/AiVideo";
@@ -34,6 +35,10 @@ function MainLayout() {
 /* =========================================
    APP
 ========================================= */
+=======
+import Contact from "./pages/Contact";
+import SeoAi from "./pages/SeoAi";
+>>>>>>> 93e52e0 (Complete website pages and components)
 
 export default function App() {
   return (
@@ -47,6 +52,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+<<<<<<< HEAD
         </Route>
 
         {/* Standalone Page — No Header / Footer */}
@@ -64,6 +70,12 @@ export default function App() {
         />
 
       </Routes>
+=======
+          <Route path="/seo-ai" element={<SeoAi />} />
+        </Routes>
+      </main>
+      <Footer />
+>>>>>>> 93e52e0 (Complete website pages and components)
     </BrowserRouter>
   );
 }
